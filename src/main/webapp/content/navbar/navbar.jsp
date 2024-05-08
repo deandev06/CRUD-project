@@ -20,9 +20,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/content/pages/home.jsp">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/content/pages/display.jsp">Display</a>
-                </li>
+            
             </ul>
         </div>
     </div>
