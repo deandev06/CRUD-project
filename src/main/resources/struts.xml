@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" extends="struts-default" namespace="/">
+
+        <interceptors>
+            <interceptor name="HibernateInterceptor" class="interceptors.HibernateInterceptor"/>
+            <interceptor-stack name="DikkeStackJonge">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="HibernateInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <action name="">
+            <result type="redirect">home</result>
+        </action>
+
+        <action name="home" class="controller.HomeAction">
+            <interceptor-ref name="DikkeStackJonge"/>
+            <result>/content/pages/home.jsp</result>
+        </action>
+
+        <action name="addBoat" class="controller.AddVehicleAction" method="addBoat">
+            <interceptor-ref name="DikkeStackJonge"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+
+        <action name="addCar" class="controller.AddVehicleAction" method="addCar">
+            <interceptor-ref name="DikkeStackJonge"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+        <action name="addPlane" class="controller.AddVehicleAction" method="addPlane">
+            <interceptor-ref name="DikkeStackJonge"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+        <action name="deleteVehicle" class="controller.DeleteVehicleAction" method ="deleteVehicle">
+            <interceptor-ref name="DikkeStackJonge"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+        <action name="editVehicle" class="controller.EditVehicleAction">
+            <result type="redirect">home</result>
+        </action>
+
+        <action name="editBoat" class="controller.EditVehicleAction" method="boat">
+            <result type="redirect">home</result>
+        </action>
+
+        <action name="editPlane" class="controller.EditVehicleAction" method="plane">
+            <result type="redirect">home</result>
+        </action>
+
+        <action name="editCar" class="controller.EditVehicleAction" method="car">
+            <result type="redirect">home</result>
+        </action>
+
+
+    </package>
+
+</struts>
